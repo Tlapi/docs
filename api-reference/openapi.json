@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "http://app.dmarceye.com/api"
     }
   ],
   "security": [
@@ -19,7 +19,7 @@
     }
   ],
   "paths": {
-    "/api/domains": {
+    "/domains": {
       "get": {
         "description": "Returns all domains from the system that the user has access to",
         "parameters": [
@@ -96,7 +96,7 @@
         }
       }
     },
-    "/api/domains/{domain}": {
+    "/domains/{domain}": {
       "get": {
         "description": "Get info about specific domain",
         "parameters": [
