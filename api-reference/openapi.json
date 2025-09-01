@@ -22,17 +22,6 @@
     "/domains": {
       "get": {
         "description": "Returns all domains from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "Domains response",
@@ -41,7 +30,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plant"
+                    "$ref": "#/components/schemas/Domain"
                   }
                 }
               }
@@ -66,7 +55,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/NewDomain"
               }
             }
           },
@@ -74,11 +63,11 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "domain response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/Domain"
                 }
               }
             }
@@ -113,7 +102,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Plant deleted",
+            "description": "Domain deleted",
             "content": {}
           },
           "400": {
@@ -144,7 +133,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Plant deleted",
+            "description": "Domain deleted",
             "content": {}
           },
           "400": {
@@ -191,7 +180,7 @@
             "type": "object",
             "properties": {
               "id": {
-                "description": "Identification number of the plant",
+                "description": "Identification number of the domain",
                 "type": "integer",
                 "format": "int64"
               }
