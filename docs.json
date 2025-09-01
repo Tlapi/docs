@@ -22,10 +22,17 @@
           {
             "group": "Domains",
             "pages": [
-              "api-reference/endpoint/list",
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              "api-reference/domains/list",
+              "api-reference/domains/get",
+              "api-reference/domains/create",
+              "api-reference/domains/delete"
+            ]
+          },
+          {
+            "group": "Reports",
+            "pages": [
+              "api-reference/reports/list",
+              "api-reference/reports/get"
             ]
           }
         ]
