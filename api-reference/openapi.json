@@ -154,6 +154,72 @@
           }
         }
       }
+    },
+    "/reports": {
+      "get": {
+        "description": "Get your account metrics overview",
+        "responses": {
+          "200": {
+            "description": "Report response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reports/{domain}": {
+      "get": {
+        "description": "Get report for specific domain",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "path",
+            "description": "domain to get info on",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "domain"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "domain report response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -202,6 +268,23 @@
             }
           }
         ]
+      },
+      "Report": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "description": "Total reported messages",
+            "type": "integer"
+          },
+          "compliant": {
+            "description": "DMARC compliant messages",
+            "type": "integer"
+          },
+          "non_compliant": {
+            "description": "DMARC non-compliant messages",
+            "type": "integer"
+          }
+        }
       },
       "Error": {
         "required": [
