@@ -96,7 +96,7 @@
         }
       }
     },
-    "/domains/{domain}": {
+    "/api/domains/{domain}": {
       "get": {
         "description": "Get info about specific domain",
         "parameters": [
