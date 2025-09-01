@@ -55,7 +55,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDomain"
+                "$ref": "#/components/schemas/Domain"
               }
             }
           },
@@ -167,32 +167,8 @@
           "domain": {
             "description": "Domain name",
             "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
           }
         }
-      },
-      "NewDomain": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Domain"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the domain",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
       },
       "ExistingDomain": {
         "allOf": [
@@ -219,7 +195,9 @@
               "dmarc_record": {
                 "description": "Current DMARC record of the domain",
                 "type": "string",
-                "format": "string"
+                "format": "string",
+                "example": "v=DMARC1; p=reject; rua=mailto:foo@bar.baz;",
+                "readOnly": true
               }
             }
           }
