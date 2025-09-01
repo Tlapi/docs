@@ -30,7 +30,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Domain"
+                    "$ref": "#/components/schemas/ExistingDomain"
                   }
                 }
               }
@@ -67,7 +67,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Domain"
+                  "$ref": "#/components/schemas/ExistingDomain"
                 }
               }
             }
@@ -101,9 +101,15 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Domain deleted",
-            "content": {}
+          "200": {
+            "description": "domain response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExistingDomain"
+                }
+              }
+            }
           },
           "400": {
             "description": "unexpected error",
@@ -183,6 +189,37 @@
                 "description": "Identification number of the domain",
                 "type": "integer",
                 "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "ExistingDomain": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Domain"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "created_at": {
+                "description": "Created at timestamp (RFC3339)",
+                "type": "string",
+                "format": "date-time",
+                "example": "2024-06-10T19:55:26+00:00",
+                "readOnly": true
+              },
+              "updated_at": {
+                "description": "Updated at timestamp (RFC3339)",
+                "type": "string",
+                "format": "date-time",
+                "example": "2024-06-10T19:55:26+00:00",
+                "readOnly": true
+              },
+              "dmarc_record": {
+                "description": "Current DMARC record of the domain",
+                "type": "string",
+                "format": "string"
               }
             }
           }
