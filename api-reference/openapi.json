@@ -155,6 +155,86 @@
         }
       }
     },
+    "/domains/{domain}/verify": {
+      "post": {
+        "description": "Verify DNS settings for given domain",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "path",
+            "description": "domain to verify",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "domain"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "domain response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExistingDomain"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "domain not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a single domain from your account",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "path",
+            "description": "domain to delete",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "domain"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Domain deleted",
+            "content": {}
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/reports": {
       "get": {
         "description": "Get your account metrics overview",

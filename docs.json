@@ -25,7 +25,8 @@
               "api-reference/domains/list",
               "api-reference/domains/get",
               "api-reference/domains/create",
-              "api-reference/domains/delete"
+              "api-reference/domains/delete",
+              "api-reference/domains/verify"
             ]
           },
           {
